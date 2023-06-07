@@ -17,5 +17,12 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       hobbies={['playing piano', 'cooking', 'knitting']}
       pronoun="He"
     />
+      <Person
+			name="Mem"
+			age={33}
+			address={{ street: 'weinheimerstr', houseNumber: 22, city: 'Bock' }}
+			pronoun="Mr"
+			hobbies={['reading', 'learning', 'travelling']}
+		/>
   </React.StrictMode>,
 );
