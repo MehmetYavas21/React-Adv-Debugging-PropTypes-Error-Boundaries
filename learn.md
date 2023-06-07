@@ -164,10 +164,56 @@ Note that if you were to open your app in the browser you will also see similar 
 [SOLUTION](https://qag99.online/school/hvtrs8%2F-gktju%60.aoo%2FUilcCccdgm%7B%2Fde%2Frgaat%2Fafvcnaef%2Fvrge-mcil%2Fgxgraiqe%2Fpport%7Bpgs-smlwtkol)
 
 
+## ErrorBoundary Components
+
+Whatever the case may be, it is worthwhile to have some guards in place so your app breaks in as graceful a way as possible whenever something goes wrong.
+
+For this purpose, you can build an ErrorBoundary Component. It acts like a JavaScript catch block and catches all errors that happen in any of its children. 
+
+Unfortunately, you cannot write an ErrorBoundary as a function component. This has to do with its dependence on the getderivedStateFromError and componentDidCatch lifecycle methods (more on lifecycle methods below when we talk about useEffect), for which no alternative exists in functional components.
+
+The first method is used to show something instead of the children component in which the error occurred, the second method is used for logging the error to an error logging service in which you can inspect the errors your users encounter.
+
+## An ErrorBoundary component looks something like this:
 
 
+                        class ErrorBoundary extends React.Component {
+                            constructor(props){
+                                super(props);
+                                this.state = {hasError : false};
+                            }
+                        }
 
+                        static getDerivedStateFromError(error){
+                            // Update state so the next render will show the fallback UI.
+                            return {hasError: true};
+                        }
 
+                        componentDidCatch(error, errorInfo){
+                            //You can also log the error to an error reporting service
+                            logErrorToMyService(error,errorInfo);
+                        }
+
+                        render(){
+                            if(this.state.hasError){
+                                //you can render any custom fallback UI
+                                return <h1>Something went wrong</h1>
+                            }
+                            return this.props.children;
+                        }
+
+It is then placed at some point in your component tree. You can be as granular as you want and have Error Boundaries at several places in your tree. The error will bubble up to the closest Error Boundary and the rest of your app may continue to be functional, so your user can navigate away from the component causing the error and doesn’t have to reload the entire page. Using an Error Boundary looks as follows:
+
+                        const App = () => {
+                            return (
+                                <ErrorBoundary>
+                                    <ChildComponent1 />
+                                    <ChildComponent2 />
+                                </ErrorBoundary>
+                                )
+                        }
+
+Now, any error that occurs in ChildComponent1 or ChildComponent2 will be caught by the ErrorBoundary and instead of seeing a blank page, the user will see the header with “Something went wrong”.  
 
 
 
