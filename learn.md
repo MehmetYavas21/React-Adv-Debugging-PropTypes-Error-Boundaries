@@ -215,9 +215,57 @@ It is then placed at some point in your component tree. You can be as granular a
 
 Now, any error that occurs in ChildComponent1 or ChildComponent2 will be caught by the ErrorBoundary and instead of seeing a blank page, the user will see the header with “Something went wrong”.  
 
+## Exercise: Using ErrorBoundaries
 
+In this exercise, you will learn how to write a basic ErrorBoundary.
 
+## Description
 
+So, let’s practice this. You will now write your own ErrorBoundary. When you start to work in React, usually on a Project level you have one or more ErrorBoundary components, but they will all look pretty similar. 
 
+First download this [folder](https://qag99.online/school/hvtrs8%2F-gktju%60.aoo%2FUilcCccdgm%7B%2Fde%2Frgaat%2Fafvcnaef%2Fvrge-mcil%2Fgxgraiqe%2Feprmr%2Fbmuldcr%7B%2Fqtcrvep) with starter files. Install the dependencies and run the development server.
+
+### Steps
+
+- When you open the webpage, about half the time you reload the page something goes wrong and nothing is shown. This is because one of our components is likely to error. In the browser console, you can now also see a big fat red error when that happens. Reload the page a few times, if you haven’t seen the error yet.
+
+- To really drill this point home, add several more instances of the <ComponentThatErrors /> in our App.jsx, see if you can make the page work at all. With 10 of those components, the chances of having a successful render are less than 0.1%.
+
+- So let’s create an ErrorBoundary.jsx file where we will write our component. As you remember it has to be a class component, so first `import { Component } from “react”` and then create a `class ErrorBoundary extends Component {...}`. Export the class as a default.
+
+- Inside the class, we have to do several things. First of all, let’s write a constructor:
+
+                        constructor(props) {
+                            super(props);
+                            this.state = { hasError: false, error: null };
+                        }
+
+This adds some basic state to our ErrorBoundary component.
+
+- In our case, we will only use the static getDerivedStateFromError class method, not the componentDidCatch. So add that static method:
+
+                  static getDerivedStateFromError(error) {
+                      return { hasError: true, error };
+                  }
+
+This ensures that each time something within the ErrorBoundary errors, we set the state in this component to what we have in this code snippet.
+
+- Now, we can add a render method that returns some JSX: `render() { // Your JSX }`. If this.state.hasError is true, we want to show the error message as follows:
+
+                  return <p style={{ color: 'red' }}>{this.state.error.message}</p>;
+
+If there is no error, we should simply return this.props.children.
+
+- Let’s try our ErrorBoundary out. In App.jsx, import the component and put an <ErrorBoundary> tag around the <ComponentThatErrors />’s. Make sure you have two of these <ComponentThatErrors />. Open the webpage and see if your bright red error is showing when either of those components errors.
+
+Note also that the rest of your app is still working even though there is an error somewhere. 
+
+- This is still quite coarse though, because if one of our component errors, the other may still show valuable information to the user. So let’s make it a bit more granular. Add an ErrorBoundary around each of the <ComponentThatErrors />, add a couple more, each within their own boundary. Open the webpage and you will see error messages for each of the components that error, but the components that do not error still show their normal rendered JSX.
+
+The advantage of ErrorBoundaries is that you can be as specific or general as you want.
+      
+ [Solution](https://qag99.online/school/hvtrs8%2F-gktju%60.aoo%2FUilcCccdgm%7B%2Fde%2Frgaat%2Fafvcnaef%2Fvrge-mcil%2Fgxgraiqe%2Feprmr%2Fbmuldcr%7B%2Fqonuvimn)
+
+[Documantation](https://qag99.online/school/hvtrs8%2F-rgaaths%2Copg-dmcq%2Fgrpop-%60ownfapigs%2Chvmn)
 
 
