@@ -268,4 +268,14 @@ The advantage of ErrorBoundaries is that you can be as specific or general as yo
 
 [Documantation](https://qag99.online/school/hvtrs8%2F-rgaaths%2Copg-dmcq%2Fgrpop-%60ownfapigs%2Chvmn)
 
+## Testing React components
+      
+We talked about testing JavaScript functions in Module 7, where we introduced the testing framework Jest and showed some examples of how you can test your code.
 
+Since React is built in JavaScript (or rather TypeScript, which compiles to JavaScript), we can also test our components, to see if they behave the way we expect them to. 
+
+      When working with React, you usually have a bundler. We have been using Vite so far, but there are others like parcel and webpack, which are both quite common solutions. Each different bundler requires some setup in order for tests to be run, and some testing frameworks work better with some bundlers. With Vite, the most common solution is Vitest, while you see Jest being used in parcel and webpack. 
+
+The only problem, however, is that React produces a DOM tree, rather than returning a simple value. Browsers know how to handle those, but our testing framework needs to emulate the browser, because the tests don’t run in the browser. The testing framework you use therefore has to somehow emulate the DOM to be able to interact with it in your tests. There are low level solutions like JSDOM, which is a JavaScript DOM emulator, and many abstractions built on top of that - we recommend React Testing Library, which provides some special functions that help you test React components effectively.
+      
+      
