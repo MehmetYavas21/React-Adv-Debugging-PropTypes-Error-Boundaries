@@ -274,8 +274,20 @@ We talked about testing JavaScript functions in Module 7, where we introduced th
 
 Since React is built in JavaScript (or rather TypeScript, which compiles to JavaScript), we can also test our components, to see if they behave the way we expect them to. 
 
-      When working with React, you usually have a bundler. We have been using Vite so far, but there are others like parcel and webpack, which are both quite common solutions. Each different bundler requires some setup in order for tests to be run, and some testing frameworks work better with some bundlers. With Vite, the most common solution is Vitest, while you see Jest being used in parcel and webpack. 
+When working with React, you usually have a bundler. We have been using Vite so far, but there are others like parcel and webpack, which are both quite common solutions. Each different bundler requires some setup in order for tests to be run, and some testing frameworks work better with some bundlers. With Vite, the most common solution is Vitest, while you see Jest being used in parcel and webpack. 
 
 The only problem, however, is that React produces a DOM tree, rather than returning a simple value. Browsers know how to handle those, but our testing framework needs to emulate the browser, because the tests don’t run in the browser. The testing framework you use therefore has to somehow emulate the DOM to be able to interact with it in your tests. There are low level solutions like JSDOM, which is a JavaScript DOM emulator, and many abstractions built on top of that - we recommend React Testing Library, which provides some special functions that help you test React components effectively.
+
+Each good testing framework (like Jest and Vitest), has plugins that you can add so that you can easily test React code, though it is likely you have to install some packages and write some configuration. 
+
+Since it will be quite likely that testing has already been set up when you start working on a project as a junior, and the best way to do it depends on the bundler and other configuration, we won’t go into too many details here, but just provide you with some links that can give you an idea about where to look. There are plenty of guides for your specific bundler available online (google “set up testing for vite + React”, for example). 
+
+## Resources
+      
+[jest documantation](https://qag99.online/school/hvtrs8%2F-jgsvjq.ko-)
+      
+[vite documentation](https://qag99.online/school/hvtrs8%2F-vktgsv.fet%2F)
+      
+[React testing library-documentation](https://qag99.online/school/hvtrs8%2F-tgsvilg%2Flkbpapy%2Ccmm-dmcq%2Fpeccv-veqtkne-ni%60rcr%7B%2Fknvrm)
       
       
