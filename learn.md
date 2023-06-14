@@ -264,9 +264,9 @@ Note also that the rest of your app is still working even though there is an err
 
 The advantage of ErrorBoundaries is that you can be as specific or general as you want.
       
- [Solution](https://qag99.online/school/hvtrs8%2F-gktju%60.aoo%2FUilcCccdgm%7B%2Fde%2Frgaat%2Fafvcnaef%2Fvrge-mcil%2Fgxgraiqe%2Feprmr%2Fbmuldcr%7B%2Fqonuvimn)
+ [Solution](https://github.com/WincAcademy/fe-react-advanced/tree/main/exercise-error-boundary/solution)
 
-[Documantation](https://qag99.online/school/hvtrs8%2F-rgaaths%2Copg-dmcq%2Fgrpop-%60ownfapigs%2Chvmn)
+[Documantation](https://reactjs.org/docs/error-boundaries.html)
 
 ## Testing React components
       
@@ -284,10 +284,10 @@ Since it will be quite likely that testing has already been set up when you star
 
 ## Resources
       
-[jest documantation](https://qag99.online/school/hvtrs8%2F-jgsvjq.ko-)
+[jest documantation](https://jestjs.io/)
       
-[vite documentation](https://qag99.online/school/hvtrs8%2F-vktgsv.fet%2F)
+[vite documentation](https://vitest.dev/)
       
-[React testing library-documentation](https://qag99.online/school/hvtrs8%2F-tgsvilg%2Flkbpapy%2Ccmm-dmcq%2Fpeccv-veqtkne-ni%60rcr%7B%2Fknvrm)
+[React testing library-documentation](https://testing-library.com/docs/react-testing-library/intro)
       
       
