@@ -223,7 +223,7 @@ In this exercise, you will learn how to write a basic ErrorBoundary.
 
 So, let’s practice this. You will now write your own ErrorBoundary. When you start to work in React, usually on a Project level you have one or more ErrorBoundary components, but they will all look pretty similar. 
 
-First download this [folder](https://qag99.online/school/hvtrs8%2F-gktju%60.aoo%2FUilcCccdgm%7B%2Fde%2Frgaat%2Fafvcnaef%2Fvrge-mcil%2Fgxgraiqe%2Feprmr%2Fbmuldcr%7B%2Fqtcrvep) with starter files. Install the dependencies and run the development server.
+First download this [folder](https://github.com/WincAcademy/fe-react-advanced/tree/main/exercise-error-boundary/starter) with starter files. Install the dependencies and run the development server.
 
 ### Steps
 
